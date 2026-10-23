@@ -1,0 +1,39 @@
+# RRE Coming Soon Board - daily refresh
+name: Refresh RRE board
+
+on:
+  schedule:
+    - cron: "0 15 * * *"   # 8:00 AM PDT / 7:00 AM PST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  DRIVE_FILE_ID: "PASTE_DRIVE_FILE_ID_HERE"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Download latest board from Google Drive
+        run: |
+          mkdir -p site
+          curl -fsSL "https://drive.google.com/uc?export=download&id=${DRIVE_FILE_ID}" -o site/index.html
+          grep -q "RRE-BOARD-OK" site/index.html || { echo "Downloaded file isn't the board; keeping yesterday's page."; exit 1; }
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4
