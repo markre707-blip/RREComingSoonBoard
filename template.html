@@ -1,0 +1,190 @@
+<!doctype html>
+<!-- RRE-BOARD-OK -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>RRE Coming Soon Board</title>
+<style>
+:root{--color-fg:#1f1e1b;--color-fg-muted:#6b6862;--color-bg:#faf9f6;--color-panel:#ffffff;--color-border-line:#e6e3dc;--color-ok:#15803d;--color-warn:#b45309;--ss:#3b82f6;--ss-bg:rgba(59,130,246,.12);
+--sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+--fs-title:2rem;--fs-heading:1.2rem;--fs-body:.95rem;--fs-caption:.8rem;--r:10px;--gap-sm:8px;--gap-md:14px;--gap-lg:20px;--gap-xl:40px;--pad-md:12px;--pad-lg:16px;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--color-fg:#ecebe8;--color-fg-muted:#a3a09a;--color-bg:#1b1a18;--color-panel:#242320;--color-border-line:#3a3833;--color-ok:#4ade80;--color-warn:#f59e0b;--ss:#60a5fa;--ss-bg:rgba(96,165,250,.15);color-scheme:dark}}
+:root[data-theme="dark"]{--color-fg:#ecebe8;--color-fg-muted:#a3a09a;--color-bg:#1b1a18;--color-panel:#242320;--color-border-line:#3a3833;--color-ok:#4ade80;--color-warn:#f59e0b;--ss:#60a5fa;--ss-bg:rgba(96,165,250,.15);color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--sans);line-height:1.45}
+.rb{max-width:1200px;margin-inline:auto;padding:clamp(16px,3vw,32px)}
+.rb-head h1{font-family:var(--serif);font-weight:400;font-size:var(--fs-title);margin:0 0 6px}
+.rb-take{color:var(--color-fg-muted);font-size:var(--fs-body);margin:0 0 var(--gap-lg)}
+.rb-take b{color:var(--color-fg);font-weight:600}
+.rb-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,9.5rem),1fr));gap:var(--gap-md);margin-bottom:var(--gap-xl)}
+.rb-tile{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--r);padding:var(--pad-md) var(--pad-lg)}
+.rb-tile .k{font-size:var(--fs-caption);color:var(--color-fg-muted)}
+.rb-tile .v{font-family:var(--serif);font-size:var(--fs-title);font-variant-numeric:tabular-nums}
+.rb-tile.accent{border-color:var(--color-warn)}
+.rb-sec{margin-bottom:var(--gap-xl)}
+.rb-sec h2{font-size:var(--fs-heading);font-weight:500;margin:0 0 2px}
+.rb-sec .note{font-size:var(--fs-caption);color:var(--color-fg-muted);margin:0 0 var(--gap-md)}
+.rb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr));gap:var(--gap-md)}
+.rb-card{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--r);padding:var(--pad-lg);display:flex;flex-direction:column;gap:6px}
+.rb-card .when{font-size:var(--fs-caption);color:var(--color-warn);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.rb-card.listed .when{color:var(--color-ok)}
+.rb-card .addr{font-size:var(--fs-heading);font-weight:500;line-height:1.25}
+.rb-card .city{color:var(--color-fg-muted);font-size:var(--fs-body)}
+.rb-card .price{font-family:var(--serif);font-size:var(--fs-heading);font-variant-numeric:tabular-nums}
+.rb-card .facts{font-size:var(--fs-body);font-variant-numeric:tabular-nums}
+.rb-card .feat{font-size:var(--fs-caption);color:var(--color-fg-muted);line-height:1.4}
+.rb-card .agent{margin-top:auto;padding-top:8px;border-top:1px solid var(--color-border-line);font-size:var(--fs-caption)}
+.rb-card .agent span{color:var(--color-fg-muted)}
+.rb-link{color:inherit;text-decoration:underline;text-decoration-color:var(--color-border-line);text-underline-offset:3px}
+.rb-link:hover{text-decoration-color:currentColor}
+.rb-card .view{font-size:var(--fs-caption);font-weight:600}
+.rb-empty{color:var(--color-fg-muted);font-size:var(--fs-body);padding:var(--pad-md) 0}
+.rb-box{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--r);padding:var(--pad-md)}
+.rb-tools{display:flex;flex-wrap:wrap;gap:var(--gap-sm);margin-bottom:var(--gap-sm)}
+.rb-tools input[type=search]{font:inherit;font-size:var(--fs-body);padding:6px 10px;border:1px solid var(--color-border-line);border-radius:var(--r);background:var(--color-bg);color:var(--color-fg);flex:1 1 14rem;min-width:0}
+.rb-scroll{max-height:34rem;overflow:auto}
+.rb-table{width:100%;border-collapse:collapse;font-size:var(--fs-body);font-variant-numeric:tabular-nums}
+.rb-table th{position:sticky;top:0;background:var(--color-panel);text-align:left;font-weight:500;font-size:var(--fs-caption);color:var(--color-fg-muted);padding:6px 8px;border-bottom:1px solid var(--color-border-line);white-space:nowrap}
+.rb-table th button{all:unset;cursor:pointer}
+.rb-table td{padding:7px 8px;border-bottom:1px solid var(--color-border-line);vertical-align:top}
+.rb-table td.num,.rb-table th.num{text-align:right}
+.rb-pill{display:inline-block;font-size:var(--fs-caption);padding:1px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.rb-ss{display:inline-block;font-size:var(--fs-caption);font-weight:600;padding:1px 8px;border-radius:999px;background:var(--ss-bg);border:1px solid var(--ss);color:var(--ss);white-space:nowrap}
+.rb-check{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-body);white-space:nowrap}
+.rb-pill.pe,.rb-pill.cl{color:var(--color-fg-muted)}
+.rb-foot{font-size:var(--fs-caption);color:var(--color-fg-muted);border-top:1px solid var(--color-border-line);padding-top:var(--gap-md)}
+@media (max-width:640px){.rb-table .hide-sm{display:none}}
+</style>
+</head>
+<body>
+<div class="rb">
+  <header class="rb-head">
+    <h1>RRE Coming Soon Board</h1>
+    <p class="rb-take"><b id="t-cs">—</b> homes coming soon, <b id="t-jl">—</b> listed in the last 14 days, and <b id="t-wp">—</b> went pending in the last 30 days. Updated <span id="t-asof">—</span>.</p>
+  </header>
+  <div class="rb-tiles">
+    <div class="rb-tile accent"><div class="k">Coming soon</div><div class="v" id="n-cs">—</div></div>
+    <div class="rb-tile"><div class="k">Active on MLS</div><div class="v" id="n-ac">—</div></div>
+    <div class="rb-tile"><div class="k">Pending</div><div class="v" id="n-pe">—</div></div>
+    <div class="rb-tile"><div class="k">Closed, last 30 days</div><div class="v" id="n-cl">—</div></div>
+  </div>
+  <section class="rb-sec" id="coming-soon">
+    <h2>Coming soon</h2>
+    <p class="note">Signed with RRE and not on the MLS yet. Line up your buyers now and contact the listing agent for showings.</p>
+    <div class="rb-cards" id="cs-cards"></div>
+  </section>
+  <section class="rb-sec" id="just-listed">
+    <h2>Just listed</h2>
+    <p class="note">RRE listings that went live on the MLS in the last 14 days.</p>
+    <div class="rb-cards" id="jl-cards"></div>
+  </section>
+  <section class="rb-sec" id="active-listings">
+    <h2>Active listings</h2>
+    <p class="note">Every RRE listing live on the MLS. Search by address, city, agent or MLS #; tap a column to sort; tap an address to open the listing on raphomes.com.</p>
+    <div class="rb-box">
+      <div class="rb-tools">
+        <input type="search" id="q" placeholder="Search…" aria-label="Search active listings">
+        <label class="rb-check"><input type="checkbox" id="ss-only"> Single story only</label>
+      </div>
+      <div class="rb-scroll">
+        <table class="rb-table" id="all-table">
+          <thead><tr>
+            <th><button data-k="address">Address</button></th>
+            <th><button data-k="city">City</button></th>
+            <th class="hide-sm"><button data-k="agent">Agent</button></th>
+            <th class="num"><button data-k="price">Price</button></th>
+            <th class="num hide-sm"><button data-k="beds">Bd</button></th>
+            <th class="num hide-sm"><button data-k="baths">Ba</button></th>
+            <th class="num hide-sm"><button data-k="sqft">Sq ft</button></th>
+            <th><button data-k="stories">Story</button></th>
+            <th class="hide-sm"><button data-k="on_market">Listed</button></th>
+            <th class="hide-sm"><button data-k="mls">MLS #</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="rb-sec" id="pending-closed">
+    <h2>Pending and recently closed</h2>
+    <p class="note">Everything currently pending, plus closings in the last 30 days.</p>
+    <div class="rb-box rb-scroll">
+      <table class="rb-table" id="moves-table">
+        <thead><tr><th>Status</th><th>Address</th><th class="hide-sm">City</th><th class="hide-sm">Agent</th><th class="num">Price</th><th>Pending</th><th>Closed</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+  <p class="rb-foot">Internal RRE board for agents. Please don't forward outside the office. Have a coming soon? Email markre707@gmail.com with the subject COMING SOON – &lt;address&gt;.</p>
+</div>
+<script type="application/json" id="board-data">__DATA__</script>
+<script>
+(function(){
+  var B=JSON.parse(document.getElementById('board-data').textContent), rows=B.rows, asOf=B.as_of;
+  var M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function dt(s){var p=s.split('-');return {y:+p[0],m:+p[1]-1,d:+p[2]};}
+  function short(s){if(!s)return '';var x=dt(s);return M[x.m]+' '+x.d;}
+  function day(s){if(!s)return '';var x=dt(s);return M[x.m]+' '+x.d+', '+x.y;}
+  function fmt(v){return Number(v).toLocaleString('en-US');}
+  function money(v){return v==null||v===''?'':'$'+fmt(Math.round(Number(v)));}
+  function num(v){return v==null||v===''?'':fmt(v);}
+  function back(n){var x=new Date(asOf+'T00:00:00Z');x.setUTCDate(x.getUTCDate()-n);return x.toISOString().slice(0,10);}
+  var d14=back(14), d30=back(30);
+  function el(t,c,txt){var e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e;}
+  function url(p){return p.mls&&/^\d+$/.test(String(p.mls))&&(p.stage==='Active'||p.stage==='Pending')?'https://www.raphomes.com/property/'+p.mls+'/':null;}
+  function link(u,t){var a=el('a','rb-link',t);a.href=u;a.target='_blank';a.rel='noopener noreferrer';return a;}
+  var stageCls={'Coming Soon':'cs','Active':'ac','Pending':'pe','Closed':'cl'};
+  function cnt(f){return rows.filter(f).length;}
+  var S={cs:cnt(function(p){return p.stage==='Coming Soon';}),ac:cnt(function(p){return p.stage==='Active';}),pe:cnt(function(p){return p.stage==='Pending';}),
+    jl:cnt(function(p){return p.stage==='Active'&&p.on_market&&p.on_market>=d14;}),wp:cnt(function(p){return p.pending&&p.pending>=d30;}),
+    cl:cnt(function(p){return p.stage==='Closed'&&p.closed&&p.closed>=d30;})};
+  ['cs','jl','wp'].forEach(function(k){document.getElementById('t-'+k).textContent=S[k];});
+  ['cs','ac','pe','cl'].forEach(function(k){document.getElementById('n-'+k).textContent=S[k];});
+  document.getElementById('t-asof').textContent=day(asOf);
+  function card(p,kind){
+    var c=el('article','rb-card'+(kind==='listed'?' listed':''));
+    if(kind==='cs')c.append(el('div','when',p.go_live?'Goes live '+short(p.go_live):'Coming soon · date TBD'));
+    else c.append(el('div','when','Listed '+short(p.on_market)));
+    c.append(el('div','addr',p.address));
+    if(p.city)c.append(el('div','city',p.city));
+    c.append(el('div','price',p.price!=null?money(p.price):'Price TBD'));
+    var bits=[];if(p.beds!=null)bits.push(num(p.beds)+' bd');if(p.baths!=null)bits.push(num(p.baths)+' ba');if(p.sqft!=null)bits.push(num(p.sqft)+' sq ft');
+    if(bits.length)c.append(el('div','facts',bits.join(' · ')));
+    if(p.stories==='Single story'){var w=el('div');w.append(el('span','rb-ss','Single story'));c.append(w);}
+    if(p.features)c.append(el('div','feat',p.features));
+    var u=url(p);if(u){var v=el('div','view');v.append(link(u,'View listing on raphomes.com ↗'));c.append(v);}
+    var a=el('div','agent');a.append(el('span',null,'Listing agent: '));a.append(el('strong',null,p.agent||'TBD'));c.append(a);
+    return c;
+  }
+  function fillCards(id,list,kind,empty){var b=document.getElementById(id);b.replaceChildren();if(!list.length){b.append(el('div','rb-empty',empty));return;}list.forEach(function(p){b.append(card(p,kind));});}
+  function fillTable(tb,list,cols){tb.replaceChildren();list.forEach(function(p){var tr=el('tr');cols.forEach(function(c){var k=c[0],f=c[1],cl=c[2];var td=el('td',cl||null);
+    if(k==='stage')td.append(el('span','rb-pill '+(stageCls[p.stage]||''),p.stage));
+    else if(k==='stories'&&p.stories==='Single story')td.append(el('span','rb-ss','Single story'));
+    else if(k==='address'&&url(p))td.append(link(url(p),p.address));
+    else td.textContent=f?f(p[k]):(p[k]==null?'':p[k]);
+    tr.append(td);});tb.append(tr);});}
+  var cs=rows.filter(function(p){return p.stage==='Coming Soon';}).sort(function(a,b){return (a.go_live||'9999').localeCompare(b.go_live||'9999')||a.address.localeCompare(b.address);});
+  fillCards('cs-cards',cs,'cs','No coming soon listings right now.');
+  var jl=rows.filter(function(p){return p.stage==='Active'&&p.on_market&&p.on_market>=d14;}).sort(function(a,b){return b.on_market.localeCompare(a.on_market);});
+  fillCards('jl-cards',jl,'listed','Nothing new on the MLS in the last 14 days.');
+  var moves=rows.filter(function(p){return p.stage==='Pending'||(p.stage==='Closed'&&p.closed&&p.closed>=d30);}).sort(function(a,b){return (a.stage===b.stage?0:a.stage==='Pending'?-1:1)||String(b.closed||b.pending||'').localeCompare(String(a.closed||a.pending||''));});
+  fillTable(document.querySelector('#moves-table tbody'),moves,[['stage'],['address'],['city',null,'hide-sm'],['agent',null,'hide-sm'],['price',money,'num'],['pending',short],['closed',short]]);
+  var q=document.getElementById('q'),ss=document.getElementById('ss-only'),sortKey='on_market',sortDir=-1,numeric=['price','beds','baths','sqft'];
+  function drawAll(){
+    var t=q.value.trim().toLowerCase();
+    var all=rows.filter(function(p){return p.stage==='Active';}).filter(function(p){return !ss.checked||p.stories==='Single story';})
+      .filter(function(p){return !t||[p.address,p.city,p.agent,p.mls,p.zip].join(' ').toLowerCase().indexOf(t)>-1;});
+    all.sort(function(a,b){var x=a[sortKey],y=b[sortKey];
+      if(numeric.indexOf(sortKey)>-1){x=x==null?-Infinity:x;y=y==null?-Infinity:y;return ((x-y)*sortDir)||a.address.localeCompare(b.address);}
+      return (String(x==null?'':x).localeCompare(String(y==null?'':y))*sortDir)||a.address.localeCompare(b.address);});
+    fillTable(document.querySelector('#all-table tbody'),all,[['address'],['city'],['agent',null,'hide-sm'],['price',money,'num'],['beds',num,'num hide-sm'],['baths',num,'num hide-sm'],['sqft',num,'num hide-sm'],['stories',function(v){return v||'—';}],['on_market',short,'hide-sm'],['mls',null,'hide-sm']]);
+  }
+  q.addEventListener('input',drawAll);ss.addEventListener('change',drawAll);
+  document.querySelectorAll('#all-table th button').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.k;sortDir=sortKey===k?-sortDir:1;sortKey=k;drawAll();});});
+  drawAll();
+})();
+</script>
+</body>
+</html>
