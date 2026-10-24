@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  DRIVE_FILE_ID: "PASTE_DRIVE_FILE_ID_HERE"
+  SHEET_ID: "1bd17-1Hn9jYLmSxIDQl33nyrFTlrQb0lhGBqYIpZMzo"
 
 jobs:
   publish:
@@ -25,12 +25,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
-      - name: Download latest board from Google Drive
-        run: |
-          mkdir -p site
-          curl -fsSL "https://drive.google.com/uc?export=download&id=${DRIVE_FILE_ID}" -o site/index.html
-          grep -q "RRE-BOARD-OK" site/index.html || { echo "Downloaded file isn't the board; keeping yesterday's page."; exit 1; }
-
+      - uses: actions/checkout@v4
+      - name: Download latest board data from Google Sheets
+        run: curl -fsSL "https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv" -o data.csv
+      - name: Build the page
+        run: python3 build.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
