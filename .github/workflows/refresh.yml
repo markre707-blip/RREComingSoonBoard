@@ -3,8 +3,8 @@ name: Refresh RRE board
 
 on:
   schedule:
-- cron: "45 15 * * *"
-workflow_dispatch:
+    - cron: "45 15 * * *"   # 8:45 AM PDT / 7:45 AM PST
+  workflow_dispatch:
 
 permissions:
   contents: read
